@@ -24,6 +24,10 @@ local plugins = {
       require("dap-go").setup(opts)
       require("core.utils").load_mappings("dap_go")
     end
+  },
+  {
+    "NVChad/nvim-autopairs",
+    enabled = false
   }
 }
 return plugins
