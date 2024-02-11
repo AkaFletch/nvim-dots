@@ -8,6 +8,9 @@ local plugins = {
         "lua-language-server",
         "html-lsp",
         "pyright",
+        "mypy",
+        "ruff",
+        "debugpy",
       }
     }
   },
@@ -21,7 +24,7 @@ local plugins = {
     "jose-elias-alvarez/null-ls.nvim",
     ft = "go",
     opts = function()
-      return require "custom.configs.null-ls"
+      return require "custom.configs.null-ls-go"
     end,
   },{
     "jose-elias-alvarez/null-ls.nvim",
@@ -29,6 +32,12 @@ local plugins = {
     event = "VeryLazy",
     opts = function()
       return require "custom.configs.null-ls-ts"
+    end,
+  },{
+    "jose-elias-alvarez/null-ls.nvim",
+    ft = "python",
+    opts = function()
+      return require "custom.configs.null-ls-py"
     end,
   }, {
     "mfussenegger/nvim-dap",
@@ -43,6 +52,14 @@ local plugins = {
       require("dap-go").setup(opts)
       require("core.utils").load_mappings("dap_go")
       require('dap.ext.vscode').load_launchjs(nil, {})
+    end
+  },{
+    "mfussenegger/nvim-dap-python",
+    ft = "python",
+    dependencies = "mfussenegger/nvim-dap",
+    config = function (_, opts)
+      local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
+      require("dap-python").setup(path)
     end
   },
   {
