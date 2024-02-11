@@ -10,6 +10,8 @@ local plugins = {
         "pyright",
         "mypy",
         "ruff",
+        "gopls",
+        "goimports",
         "debugpy",
       }
     }
