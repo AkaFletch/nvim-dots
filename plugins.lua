@@ -1,5 +1,14 @@
 local plugins = {
   {
+    "williamboman/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "typescript-language-server",
+        "eslint-lsp",
+      }
+    }
+  },
+  {
     "neovim/nvim-lspconfig",
     config=function ()
       require "plugins.configs.lspconfig"
@@ -10,6 +19,13 @@ local plugins = {
     ft = "go",
     opts = function()
       return require "custom.configs.null-ls"
+    end,
+  },{
+    "jose-elias-alvarez/null-ls.nvim",
+    ft = "ts",
+    event = "VeryLazy",
+    opts = function()
+      return require "custom.configs.null-ls-ts"
     end,
   }, {
     "mfussenegger/nvim-dap",
