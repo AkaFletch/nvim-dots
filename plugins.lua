@@ -5,6 +5,9 @@ local plugins = {
       ensure_installed = {
         "typescript-language-server",
         "eslint-lsp",
+        "lua-language-server",
+        "html-lsp",
+        "pyright",
       }
     }
   },
