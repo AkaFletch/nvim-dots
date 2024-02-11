@@ -34,5 +34,15 @@ M.dap_go = {
     }
   }
 }
+M.dapui = {
+  n = {
+    ["<leader>dui"] = {
+      function()
+        require("dapui").toggle()
+      end,
+      "Open debuging ui"
+    }
+  }
+}
 
 return M
